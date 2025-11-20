@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+eatlyze_env/
+*.sqlite3
+
+# ML model file
+food_rf_model.pkl
+
+# Node dependencies
+node_modules/
+
+# VSCode files
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
