@@ -34,7 +34,6 @@ Modern UI built with React, TypeScript, and component libraries.
 Demo
 Live Frontend:
 https://dishdecoded.vercel.app
-(Replace with your actual link if different)
 
 Live Backend (API, for testing):
 https://dishdecoded.onrender.com
