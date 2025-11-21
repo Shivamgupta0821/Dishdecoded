@@ -93,7 +93,7 @@ profile_default/
 ipython_config.py
 
 # ML model file
-food_rf_model.pkl
+
 
 # Node dependencies
 node_modules/
