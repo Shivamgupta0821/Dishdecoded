@@ -696,6 +696,7 @@ import { Badge } from "./ui/badge";
 import { Camera, X, Check, RotateCcw, Sparkles, Zap, Brain, Target, Flame } from "lucide-react";
 import { saveFoodEntry } from "../utils/userDataManager";
 
+
 interface FoodResult {
   name: string;
   calories: number;
@@ -723,6 +724,8 @@ export function FoodScanner({ onClose, onSaveFood }: FoodScannerProps) {
       fileInputRef.current.click();
     }
   };
+  
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -736,12 +739,21 @@ export function FoodScanner({ onClose, onSaveFood }: FoodScannerProps) {
 
       // Real ML backend fetch
       try {
-        const formData = new FormData();
-        formData.append("image", file);
-        const response = await fetch("http://127.0.0.1:5000/predict", {
-          method: "POST",
-          body: formData,
-        });
+      const formData = new FormData();
+      formData.append("image", file);
+
+      // Use the deployed backend!
+      const response = await fetch(`${baseUrl}/predict`, {
+        method: "POST",
+        body: formData,
+      });
+      // try {
+      //   const formData = new FormData();
+      //   formData.append("image", file);
+      //   const response = await fetch("http://127.0.0.1:5000/predict", {
+      //     method: "POST",
+      //     body: formData,
+      //   });
         if (!response.ok) throw new Error("Prediction failed");
         const data = await response.json();
 
