@@ -743,6 +743,7 @@ export function FoodScanner({ onClose, onSaveFood }: FoodScannerProps) {
       formData.append("image", file);
 
       // Use the deployed backend!
+      console.log('Base API URL:', baseUrl);
       const response = await fetch(`${baseUrl}/predict`, {
         method: "POST",
         body: formData,
